@@ -1,11 +1,12 @@
 <html>
 <head>
-
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/inlibraries.css') }}">
 </head>
 
-<body>
+<body class="front_page">
 <h1>{{ subdomain_title }} In Libraries {{ year }}</h1>
-<h2>How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }} ?</h2>
+<h2>How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }}?</h2>
 
         <h3>Confirmed sessions include:</h3>
         <ul>
