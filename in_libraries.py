@@ -5,9 +5,6 @@ from datetime import date
 
 app = Flask(__name__)
 
-# TODO: remove before production
-app.debug = True
-
 @app.route('/')
 def front_page(subdomain=None):
     subdomain_split = request.host.split(".")[0].split("_")
@@ -17,4 +14,4 @@ def front_page(subdomain=None):
     return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
