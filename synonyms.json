@@ -1,5 +1,17 @@
 {
     "nouns": {
-            "leadership": ["administration", "admin", "management"]
-            }
+        "leadership": ["leadership","administration", "admin", "management"],
+        "future": ["future", "world of tomorrow", "coming era", "next ten years"],
+        "risk": ["risk","peril","challenge"],
+        "opportunity": ["opportunity","benefit","advantage"]
+    },
+    "verbs": {
+        "use": ["use","utilize","make use of","exploit"],
+        "leading": ["managing","leading","strategizing","change-making"],
+        "innovating": ["innovating","winnovating","change-making"]
+    },
+    "concepts": {
+        "types_of_libraries": ["special","public","academic","medical","private","corporate"],
+        "demographic_groups": ["seniors","millenials","digital natives","teens"]
+    }
 }
