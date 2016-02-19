@@ -9,5 +9,7 @@
 
     "How Can {{ subdomain_title}} Help Me {{ synonym('verbs','innovate').title() }}? A Primer for New {{ synonym('nouns','managers').title() }}",
 
-    "Do {{ synonym('concepts','types_of_libraries').title() }} Libraries Need {{ subdomain_title}}? A {{ synonym('nouns','thought leader').title() }} Panel"
+    "Do {{ synonym('concepts','types_of_libraries').title() }} Libraries Need {{ subdomain_title}}? A {{ synonym('nouns','thought leader').title() }} Panel",
+
+    "Help! My {{ synonym('concepts','types_of_staff').title() }} Won't {{ synonym('verbs','embrace').title() }} {{ subdomain_title}}"
 ]
