@@ -12,6 +12,6 @@
     },
     "concepts": {
         "types_of_libraries": ["special","public","academic","medical","private","corporate"],
-        "demographic_groups": ["seniors","millenials","digital natives","teens","makers"]
+        "demographic_groups": ["seniors","millenials","digital natives","teens","makers","children","tweens","reluctant readers"]
     }
 }
