@@ -7,7 +7,8 @@
         "innovators": ["innovators","change-makers","winnovators","change agents"],
         "managers": ["managers","administrators","leaders"],
         "manager": ["manager","administrator","leader","supervisor"],
-        "thought leader": ["thought leader", "change agent", "futurist"]
+        "thought leader": ["thought leader", "change agent", "futurist"],
+        "innovation": ["innovation","winnovation","change-making","evolution"]
     },
     "verbs": {
         "use": ["use","utilize","make use of","exploit"],
