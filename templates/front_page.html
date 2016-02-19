@@ -1,31 +1,34 @@
 {% include 'header.html' %}
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <h3>Confirmed Sessions</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <ul>
-                    {% if test_session_madlibs %}
-                        {% for madlib in session_madlibs %}
+                    <ul>
+                        {% if test_session_madlibs %}
+                            {% for madlib in session_madlibs %}
+                            <li>
+                                {{ session_by_index(loop.index0) }}
+                            </li>
+                            {% endfor %}
+                        {% else %}
                         <li>
-                            {{ session_by_index(loop.index0) }}
+                            {{ random_session() }}
                         </li>
-                        {% endfor %}
-                    {% else %}
-                    <li>
-                        {{ random_session() }}
-                    </li>
-                    <li>
-                        {{ random_session() }}
-                    </li>
-                    <li>
-                        {{ random_session() }}
-                    </li>
-                    {% endif %}
+                        <li>
+                            {{ random_session() }}
+                        </li>
+                        <li>
+                            {{ random_session() }}
+                        </li>
+                        {% endif %}
+                    </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Keynote Speakers</h3>
+                <ul>
+                    <li>Skip Charlesworth, Director of Service {{ synonym('nouns','innovation').title() }}, Grimeshackle Public Library</li>
+                    <li>Patricia Hacksworth-Flemingdon, {{ synonym('nouns','thought leader').title() }} and Consultant, Hacksworth-Flemingdon LLC</li>
+                    <li>Alexander Snarlsworth, Head of {{ synonym('nouns','risk').title() }} Management, Boswell Library, University of Northern South Dakota</li>
                 </ul>
             </div>
         </div>
