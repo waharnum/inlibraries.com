@@ -6,17 +6,24 @@
         "opportunity": ["opportunity","benefit","advantage"],
         "innovators": ["innovators","change-makers","winnovators","change agents"],
         "managers": ["managers","administrators","leaders"],
+        "manager": ["manager","administrator","leader","supervisor"],
         "thought leader": ["thought leader", "change agent", "futurist"]
     },
     "verbs": {
         "use": ["use","utilize","make use of","exploit"],
         "leading": ["succeeding","managing","leading","strategizing","change-making"],
         "innovating": ["innovating","winnovating","change-making","evolving"],
-        "innovate": ["innovate","change-make","winnovate","evolve"]
+        "innovate": ["innovate","change-make","winnovate","evolve"],
+        "embrace": ["embrace", "accept", "adopt"]
+    },
+    "adverbs": {
+        "innovative": ["innovative", "new", "ingenious", "revolutionary", "inventive", "original"]
     },
     "concepts": {
         "types_of_libraries": ["special","public","academic","medical","private","corporate"],
         "service_groups": ["seniors","millenials","digital natives","teens","makers","children","tweens","reluctant readers"],
-        "types_of_librarians": ["systems librarians","reference librarians","new librarians","medical librarians","academic librarians","public librarians","solo librarians"]
+        "types_of_librarians": ["systems librarians","reference librarians","new librarians","medical librarians","academic librarians","public librarians","solo librarians"],
+        "types_of_staff": ["change-averse staff","unionized staff","millenial staff","paraprofessional staff","new staff","old staff","tech-savvy staff","tech-phobic staff"],
+        "types_of_library_services": ["book clubs", "outreach", "storytimes", "programs", "after-school drop-ins", "research support"]
     }
 }

@@ -35,15 +35,23 @@ def front_page(subdomain=None):
     subdomain_title = subdomain.title()
     year = date.today().year
 
+    # Set to True to dump all the madlibs - good for testing
+    test_session_madlibs = False
+
     def get_random_session_madlib():
         random_number = randint(0, len(session_madlibs)-1)
-        template_string = session_madlibs[random_number]
+        return get_session_madlib(random_number)
+
+    def get_session_madlib(idx):
+        template_string = session_madlibs[idx]
         return render_template_string(template_string, subdomain=subdomain, subdomain_title=subdomain_title, year=year)
 
     # Set up Jinja tag for random session madlib in templates
     app.jinja_env.globals.update(random_session=get_random_session_madlib)
-    
-    return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year)
+
+    app.jinja_env.globals.update(session_by_index=get_session_madlib)
+
+    return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_session_madlibs=test_session_madlibs, session_madlibs=session_madlibs)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
