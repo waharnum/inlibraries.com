@@ -7,11 +7,12 @@
     },
     "verbs": {
         "use": ["use","utilize","make use of","exploit"],
-        "leading": ["managing","leading","strategizing","change-making"],
-        "innovating": ["innovating","winnovating","change-making"]
+        "leading": ["succeeding","managing","leading","strategizing","change-making"],
+        "innovating": ["innovating","winnovating","change-making","evolving"]
     },
     "concepts": {
         "types_of_libraries": ["special","public","academic","medical","private","corporate"],
-        "demographic_groups": ["seniors","millenials","digital natives","teens","makers","children","tweens","reluctant readers"]
+        "service_groups": ["seniors","millenials","digital natives","teens","makers","children","tweens","reluctant readers"],
+        "types_of_librarians": ["systems librarians","reference librarians","new librarians","medical librarians","academic librarians","public librarians","solo librarians"]
     }
 }

@@ -1,0 +1,5 @@
+[
+    "{{ subdomain_title}}: The Past, the {{ synonym('nouns','future').title() }}, the Opportunities for Libraries!",
+    "{{ synonym('verbs','leading').title() }} with {{ subdomain_title}} in the {{ synonym('concepts','types_of_libraries').title() }} Library: Lessons from the {{ synonym('nouns','leadership').title() }} Trenches",
+    "{{ synonym('concepts','service_groups').title() }} and {{ subdomain_title }}: {{ synonym('nouns','risk').title() }} or {{ synonym('nouns','opportunity').title() }}? Both!"
+]
