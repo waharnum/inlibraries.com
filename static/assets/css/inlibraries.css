@@ -1,0 +1,10 @@
+h1 {
+    color: purple;
+    border-bottom: 4px double black;
+    text-align: center;
+}
+
+h2 {
+    font-family: monospace;
+    margin-top: 0;
+}

@@ -1,24 +1,25 @@
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/inlibraries.css') }}">
-</head>
+{% include 'header.html' %}
 
-<body class="front_page">
-<h1>{{ subdomain_title }} In Libraries {{ year }}</h1>
-<h2>How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }}?</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Confirmed Sessions</h3>
+            </div>
+        </div>
 
-        <h3>Confirmed sessions include:</h3>
-        <ul>
-            <li>
-                {{ subdomain_title}}: The Past, the {{ synonym("nouns","future").title() }}, the Opportunities for Libraries!
-            </li>
-            <li>
-                {{ synonym("verbs","leading").title() }} with {{ subdomain_title}} in the {{ synonym("concepts","types_of_libraries").title() }} Library: Lessons from the {{ synonym("nouns","leadership").title() }} Trenches
-            </li>
-            <li>
-                {{ synonym("concepts","demographic_groups").title() }} and {{ subdomain_title }}: {{ synonym("nouns","risk").title() }} or {{ synonym("nouns","opportunity").title() }}? Both!
-            </li>
-        </ul>
-</body>
-</html>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li>
+                        {{ random_session() }}
+                    </li>
+                    <li>
+                        {{ random_session() }}
+                    </li>
+                    <li>
+                        {{ random_session() }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+{% include 'footer.html' %}

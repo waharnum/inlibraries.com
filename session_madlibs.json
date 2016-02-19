@@ -1,0 +1,13 @@
+[
+    "{{ subdomain_title}}: The Past, the {{ synonym('nouns','future').title() }}, the Opportunities for Libraries!",
+
+    "{{ synonym('verbs','leading').title() }} with {{ subdomain_title}} in the {{ synonym('concepts','types_of_libraries').title() }} Library: Lessons from the {{ synonym('nouns','leadership').title() }} Trenches",
+
+    "{{ synonym('concepts','service_groups').title() }} and {{ subdomain_title }}: {{ synonym('nouns','risk').title() }} or {{ synonym('nouns','opportunity').title() }}? Both!",
+
+    "{{ synonym('concepts','types_of_librarians').title() }} as {{ synonym('nouns','innovators').title() }} with {{ subdomain_title }}",
+
+    "How Can {{ subdomain_title}} Help Me {{ synonym('verbs','innovate').title() }}? A Primer for New {{ synonym('nouns','managers').title() }}",
+
+    "Do {{ synonym('concepts','types_of_libraries').title() }} Libraries Need {{ subdomain_title}}? A {{ synonym('nouns','thought leader').title() }} Panel"
+]
