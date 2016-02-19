@@ -38,7 +38,7 @@ def front_page(subdomain=None):
     subdomain_title = subdomain.title()
     year = date.today().year
 
-    # Set to "true" to dump all the madlibs - good for testing
+    # Set to True to dump all the madlibs - good for testing
     test_session_madlibs = False
 
     def get_random_session_madlib():
