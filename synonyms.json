@@ -2,8 +2,9 @@
     "nouns": {
         "leadership": ["leadership","administration", "admin", "management"],
         "future": ["future", "world of tomorrow", "coming era", "next ten years"],
-        "risk": ["risk","peril","challenge"],
-        "opportunity": ["opportunity","benefit","advantage"]
+        "risk": ["risk","peril","challenge","danger","hazard"],
+        "opportunity": ["opportunity","benefit","advantage"],
+        "innovators": ["innovators","change-makers","winnovators","change agents"]
     },
     "verbs": {
         "use": ["use","utilize","make use of","exploit"],
