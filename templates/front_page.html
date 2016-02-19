@@ -10,7 +10,11 @@
             <div class="col-md-12">
                 <ul>
                     {% if test_session_madlibs %}
-                        TEST!
+                        {% for madlib in session_madlibs %}
+                        <li>
+                            {{ session_by_index(loop.index0) }}
+                        </li>
+                        {% endfor %}
                     {% else %}
                     <li>
                         {{ random_session() }}
