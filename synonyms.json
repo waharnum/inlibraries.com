@@ -4,12 +4,15 @@
         "future": ["future", "world of tomorrow", "coming era", "next ten years"],
         "risk": ["risk","peril","challenge","danger","hazard"],
         "opportunity": ["opportunity","benefit","advantage"],
-        "innovators": ["innovators","change-makers","winnovators","change agents"]
+        "innovators": ["innovators","change-makers","winnovators","change agents"],
+        "managers": ["managers","administrators","leaders"],
+        "thought leader": ["thought leader", "change agent", "futurist"]
     },
     "verbs": {
         "use": ["use","utilize","make use of","exploit"],
         "leading": ["succeeding","managing","leading","strategizing","change-making"],
-        "innovating": ["innovating","winnovating","change-making","evolving"]
+        "innovating": ["innovating","winnovating","change-making","evolving"],
+        "innovate": ["innovate","change-make","winnovate","evolve"]
     },
     "concepts": {
         "types_of_libraries": ["special","public","academic","medical","private","corporate"],
