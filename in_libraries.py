@@ -16,14 +16,16 @@ synonyms = json.loads(synonyms_json)
 
 # part = part of speech (noun, verb, etc)
 # word = specific word to get a synonym for
+# refer to synonyms.json
 def get_synonym(part, word):
     synonyms_for_word = synonyms[part][word]
     random_number = randint(0, len(synonyms_for_word)-1)
     return synonyms_for_word[random_number]
 
-# Set up Jinja tags
+# Set up Jinja tag for synonym usage in templates
 app.jinja_env.globals.update(synonym=get_synonym)
 
+# Front page route
 @app.route('/')
 def front_page(subdomain=None):
     subdomain_split = request.host.split(".")[0].split("_")

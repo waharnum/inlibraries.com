@@ -1,24 +1,34 @@
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/inlibraries.css') }}">
-</head>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    </head>
 
 <body class="front_page">
-<h1>{{ subdomain_title }} In Libraries {{ year }}</h1>
-<h2>How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }}?</h2>
+    <div class="container-fluid">
+        <h1>{{ subdomain_title }} In Libraries {{ year }}</h1>
+        <h2>How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }}?</h2>
 
-        <h3>Confirmed sessions include:</h3>
-        <ul>
-            <li>
-                {{ subdomain_title}}: The Past, the {{ synonym("nouns","future").title() }}, the Opportunities for Libraries!
-            </li>
-            <li>
-                {{ synonym("verbs","leading").title() }} with {{ subdomain_title}} in the {{ synonym("concepts","types_of_libraries").title() }} Library: Lessons from the {{ synonym("nouns","leadership").title() }} Trenches
-            </li>
-            <li>
-                {{ synonym("concepts","demographic_groups").title() }} and {{ subdomain_title }}: {{ synonym("nouns","risk").title() }} or {{ synonym("nouns","opportunity").title() }}? Both!
-            </li>
-        </ul>
+                <h3>Confirmed Sessions</h3>
+                
+                <ul>
+                    <li>
+                        {{ subdomain_title}}: The Past, the {{ synonym("nouns","future").title() }}, the Opportunities for Libraries!
+                    </li>
+                    <li>
+                        {{ synonym("verbs","leading").title() }} with {{ subdomain_title}} in the {{ synonym("concepts","types_of_libraries").title() }} Library: Lessons from the {{ synonym("nouns","leadership").title() }} Trenches
+                    </li>
+                    <li>
+                        {{ synonym("concepts","demographic_groups").title() }} and {{ subdomain_title }}: {{ synonym("nouns","risk").title() }} or {{ synonym("nouns","opportunity").title() }}? Both!
+                    </li>
+                </ul>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
 </html>
