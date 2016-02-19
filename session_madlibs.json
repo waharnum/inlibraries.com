@@ -11,5 +11,9 @@
 
     "Do {{ synonym('concepts','types_of_libraries').title() }} Libraries Need {{ subdomain_title}}? A {{ synonym('nouns','thought leader').title() }} Panel",
 
-    "Help! My {{ synonym('concepts','types_of_staff').title() }} Won't {{ synonym('verbs','embrace').title() }} {{ subdomain_title}}"
+    "Help! My {{ synonym('concepts','types_of_staff').title() }} Won't {{ synonym('verbs','embrace').title() }} {{ subdomain_title}}",
+
+    "Creating the {{ synonym('adverbs','innovative').title() }} {{ synonym('concepts','types_of_library_services').title() }} of the {{ synonym('nouns','future').title() }} With the Help of {{ subdomain_title}}",
+
+    "The Secret Ingredient is... {{ subdomain_title}}{{ ['?','!'] | random }} One {{ synonym('nouns','manager').title() }}'s Secret Weapon for Winning Over {{ synonym('concepts','types_of_staff').title() }}" 
 ]
