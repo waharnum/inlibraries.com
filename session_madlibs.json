@@ -3,17 +3,19 @@
 
     "{{ synonym('verbs','leading').title() }} with {{ subdomain_title}} in the {{ synonym('concepts','types_of_libraries').title() }} Library: Lessons from the {{ synonym('nouns','leadership').title() }} Trenches",
 
-    "{{ synonym('concepts','service_groups').title() }} and {{ subdomain_title }}: {{ synonym('nouns','risk').title() }} or {{ synonym('nouns','opportunity').title() }}? Both!",
+    "Library Service to {{ synonym('concepts','service_groups').title() }} and {{ subdomain_title }}: {{ synonym('nouns','risk').title() }} or {{ synonym('nouns','opportunity').title() }}? Both!",
 
     "{{ synonym('concepts','types_of_librarians').title() }} as {{ synonym('nouns','innovators').title() }} with {{ subdomain_title }}",
 
-    "How Can {{ subdomain_title}} Help Me {{ synonym('verbs','innovate').title() }}? A Primer for New {{ synonym('nouns','managers').title() }}",
+    "How Can {{ subdomain_title}} Help Me {{ synonym('verbs','innovate').title() }}? A Primer for New Library {{ synonym('nouns','managers').title() }}",
 
-    "Do {{ synonym('concepts','types_of_libraries').title() }} Libraries Need {{ subdomain_title}}? A {{ synonym('nouns','thought leader').title() }} Panel",
+    "Do {{ synonym('concepts','types_of_libraries').title() }} Libraries Need {{ subdomain_title}}? A Library {{ synonym('nouns','thought leader').title() }} Panel",
 
     "Help! My {{ synonym('concepts','types_of_staff').title() }} Won't {{ synonym('verbs','embrace').title() }} {{ subdomain_title}}",
 
     "Creating the {{ synonym('adverbs','innovative').title() }} {{ synonym('concepts','types_of_library_services').title() }} of the {{ synonym('nouns','future').title() }} With the Help of {{ subdomain_title}}",
 
-    "The Secret Ingredient is... {{ subdomain_title}}{{ ['?','!'] | random }} One {{ synonym('nouns','manager').title() }}'s Secret Weapon for Winning Over {{ synonym('concepts','types_of_staff').title() }}" 
+    "The Secret Ingredient is... {{ subdomain_title}}{{ ['?','!'] | random }} One {{ synonym('nouns','manager').title() }}'s Approach to Winning Over {{ synonym('concepts','types_of_staff').title() }}",
+
+    "{{ subdomain_title }} On A Shoestring Budget: Tips and Tricks for {{ synonym('concepts','types_of_libraries').title() }} Libraries" 
 ]
