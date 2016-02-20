@@ -18,6 +18,12 @@ Using aleatoric generation techniques, *inlibraries.com* invites critique of the
 
 I welcome contribution via [fork and pull](https://help.github.com/articles/using-pull-requests/); for feature requests or suggestions, you can contact me on [Twitter](https://twitter.com/waharnum) or the repository's [Issues](https://github.com/waharnum/inlibraries.com/issues) section.
 
+If you have [session madlibs](https://github.com/waharnum/inlibraries.com/blob/master/session_madlibs.json) or [synonms](https://github.com/waharnum/inlibraries.com/blob/master/synonyms.json) to contribute, I'm happy to accept those via [Twitter](https://twitter.com/waharnum) from people who don't feel like dealing with the somewhat unfriendly format. The session madlibs are used in combination with the synonyms file (not a really accurate name at this point) to generate the random verbiage. More of them means the site generation gets more random, which is a good thing!
+
+## Future Development
+
+I'm maintaining the [issues list](https://github.com/waharnum/inlibraries.com/issues) as a means of recording enhancements or other work I'd like to do. My immediate goal is to have something that looks (at first glance) like a legitimate conference homepage; longer-term, I think something that generated random session pages, speaker bios, etc would also be cool.
+
 ## Running Your Own
 
 You will want to look at the [production branch](https://github.com/waharnum/inlibraries.com/tree/production); this also includes a Docker container definition, for those into *Docker Docker Docker*.
