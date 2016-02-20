@@ -1,10 +1,30 @@
-h1 {
-    color: purple;
-    border-bottom: 4px double black;
+.title-container {
+	background-color:purple;
+	background: linear-gradient(to bottom, rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%);
+}
+
+.title-container h1 {
+    color: white;
+    text-align: center;
+    font-size:4em;
+    font-weight: bold;
+}
+
+.subtitle-container {
+	background-color:purple;	
+}
+
+.subtitle-container h2 {
+    font-family: monospace;
+    font-size: 2em;
+    margin-top: 0;
+    color: white;
     text-align: center;
 }
 
-h2 {
-    font-family: monospace;
-    margin-top: 0;
+.footer-links {
+	margin-top: 2em;
+	padding-top: 2em;
+	border-top: 4px groove black;
+	text-align: center;
 }
