@@ -21,3 +21,10 @@
     color: white;
     text-align: center;
 }
+
+.footer-links {
+	margin-top: 2em;
+	padding-top: 2em;
+	border-top: 4px groove black;
+	text-align: center;
+}
