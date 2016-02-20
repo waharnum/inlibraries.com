@@ -25,6 +25,10 @@
         "service_groups": ["seniors","millenials","digital natives","teens","makers","children","tweens","reluctant readers", "undergraduates", "faculty", "graduate students"],
         "types_of_librarians": ["systems librarians","reference librarians","new librarians","medical librarians","academic librarians","public librarians","solo librarians"],
         "types_of_staff": ["change-averse staff","unionized staff","millenial staff","paraprofessional staff","new staff","old staff","tech-savvy staff","tech-phobic staff"],
-        "types_of_library_services": ["book clubs", "outreach", "storytimes", "programs", "after-school drop-ins", "research support"]
+        "types_of_library_services": ["book clubs", "outreach", "storytimes", "programs", "after-school drop-ins", "research support"],
+        "types_of_library_departments": ["public service","collection development","technical services","web services","digital services","information technology"],
+        "fake_cities": ["Grimeshackle", "Pittsnorth", "Wontsburgh", "Dallydale", "North Jobsworth"],
+        "fake_higher_ed": ["University of Northern South Dakota", "Pincenez University", "Ontario College of Futurology Studies", "Discordian University of America", "J.R. Dobbs Institute for Advanced Learning"],
+        "fake_academic_libraries": ["Boswell Library","John and Jane Richworf Memorial Library", "Graduate Scientician Library"]
     }
 }
