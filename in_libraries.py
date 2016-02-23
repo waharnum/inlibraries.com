@@ -40,6 +40,9 @@ def get_synonym(part, word):
     synonyms_for_word = SYNONYMS[part][word]
     return get_random_from_list(synonyms_for_word)
 
+def get_session_madlib(template_string, subdomain, year):
+    return render_template_string(template_string, subdomain=subdomain, subdomain_title=subdomain.title(), year=year)
+
 # Set up Jinja tag for synonym usage in templates
 APP.jinja_env.globals.update(synonym=get_synonym)
 
@@ -57,16 +60,16 @@ def front_page(subdomain=None):
     # Set to True to dump all the madlibs - good for testing
     test_session_madlibs = False
 
-    def get_session_madlib(template_string):
-        return render_template_string(template_string, subdomain=subdomain, subdomain_title=subdomain_title, year=year)
+    def get_session_for_request(template_string):
+        return get_session_madlib(template_string, subdomain, year)
 
     def get_random_session_madlib():
         template_string = get_random_from_list(SESSION_MADLIBS)
-        return get_session_madlib(template_string)
+        return get_session_for_request(template_string)
 
     def get_session_madlib_by_index(idx):
         template_string = SESSION_MADLIBS[idx]
-        return get_session_madlib(template_string)
+        return get_session_for_request(template_string)
 
     def get_random_session_madlibs(count=3):
         sessions = []
