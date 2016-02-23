@@ -6,10 +6,10 @@ from datetime import date
 from random import randint
 import json
 
-app = Flask(__name__)
+APP = Flask(__name__)
 
 # TODO: remove before production
-app.debug = True
+APP.debug = False
 
 # loads a JSON file to a dictionary variable
 def dict_from_json_file(json_file_path):
@@ -41,13 +41,13 @@ def get_synonym(part, word):
     return get_random_from_list(synonyms_for_word)
 
 # Set up Jinja tag for synonym usage in templates
-app.jinja_env.globals.update(synonym=get_synonym)
+APP.jinja_env.globals.update(synonym=get_synonym)
 
 # Set up Jinja tag for random image filename in template
-app.jinja_env.globals.update(random_image=get_random_image)
+APP.jinja_env.globals.update(random_image=get_random_image)
 
 # Front page route
-@app.route('/')
+@APP.route('/')
 def front_page(subdomain=None):
     subdomain_split = request.host.split(".")[0].split("_")
     subdomain = " ".join(subdomain_split)
@@ -81,11 +81,11 @@ def front_page(subdomain=None):
         return get_session_madlib_from_template_string(template_string)
 
     # Set up Jinja tag for random session madlib in templates
-    app.jinja_env.globals.update(random_sessions=get_random_session_madlibs)
+    APP.jinja_env.globals.update(random_sessions=get_random_session_madlibs)
 
-    app.jinja_env.globals.update(session_by_index=get_session_madlib_by_index)
+    APP.jinja_env.globals.update(session_by_index=get_session_madlib_by_index)
 
     return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_session_madlibs=test_session_madlibs, session_madlibs=session_madlibs)
 
 if __name__ == '__main__':
-    app.run()
+    APP.run()
