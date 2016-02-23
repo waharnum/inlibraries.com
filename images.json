@@ -1,0 +1,20 @@
+[
+    {
+        "filename":"1.jpg",
+        "source": "https://www.flickr.com/photos/opengridscheduler/22468805072/",
+        "alt": "Library bookshelves",
+        "license": "Public domain"
+    },
+    {
+        "filename":"2.jpg",
+        "source": "https://www.flickr.com/photos/generalec/16165122637/",
+        "alt": "Coolers full of Japanese beer",
+        "license": "Public domain"
+    },
+    {
+        "filename":"3.jpg",
+        "source": "https://www.flickr.com/photos/statelibraryqueensland/8808717962/",
+        "alt": "Interior of Townsville library, ca. 1948",
+        "license": "Public domain"
+    }
+]
