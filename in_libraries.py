@@ -19,6 +19,14 @@ synonyms = json.loads(synonyms_json)
 session_madlibs_json = open("session_madlibs.json").read()
 session_madlibs = json.loads(session_madlibs_json)
 
+# Load image information
+image_json = open("images.json").read()
+images_information = json.loads(image_json)
+
+def get_random_image():
+    random_number = randint(0, len(images_information)-1)
+    return images_information[random_number]
+
 # part = part of speech (noun, verb, etc)
 # word = specific word to get a synonym for
 # refer to synonyms.json
@@ -29,6 +37,9 @@ def get_synonym(part, word):
 
 # Set up Jinja tag for synonym usage in templates
 app.jinja_env.globals.update(synonym=get_synonym)
+
+# Set up Jinja tag for random image filename in template
+app.jinja_env.globals.update(random_image=get_random_image)
 
 # Front page route
 @app.route('/')
