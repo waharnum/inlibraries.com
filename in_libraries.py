@@ -11,17 +11,19 @@ app = Flask(__name__)
 # TODO: remove before production
 app.debug = True
 
+# loads a JSON file to a dictionary variable
+def dict_from_json_file(json_file_path):
+    json_file = open(json_file_path).read()
+    return json.loads(json_file)
+
 # Load synonyms
-synonyms_json = open("synonyms.json").read()
-synonyms = json.loads(synonyms_json)
+synonyms = dict_from_json_file("synonyms.json")
 
 # Load session madlibs
-session_madlibs_json = open("session_madlibs.json").read()
-session_madlibs = json.loads(session_madlibs_json)
+session_madlibs = dict_from_json_file("session_madlibs.json")
 
 # Load image information
-image_json = open("images.json").read()
-images_information = json.loads(image_json)
+images_information = dict_from_json_file("images.json")
 
 # gets a random item from a collection and returns it
 def get_random_from_list(collection):
