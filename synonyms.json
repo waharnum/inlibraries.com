@@ -8,7 +8,8 @@
         "managers": ["managers","administrators","leaders"],
         "manager": ["manager","administrator","leader","supervisor"],
         "thought leader": ["thought leader", "change agent", "futurist"],
-        "innovation": ["innovation","winnovation","change-making","evolution"]
+        "innovation": ["innovation","winnovation","change-making","evolution"],
+        "effective": ["effective", "compelling", "awesome", "powerful", "potent"]
     },
     "verbs": {
         "use": ["use","utilize","make use of","exploit"],
@@ -29,6 +30,10 @@
         "types_of_library_departments": ["public service","collection development","metadata services","technical services","web services","digital services","information technology"],
         "fake_cities": ["Grimeshackle", "Pittsnorth", "Wontsburgh", "Dallydale", "North Jobsworth", "Currywurstberg", "Flapsaddle"],
         "fake_higher_ed": ["University of Northern South Dakota", "Pincenez University", "Ontario College of Futurology Studies", "Discordian University of America", "J.R. Dobbs Institute for Advanced Learning", "Wheatgrass Technical College", "South Buffalo Academy of the Arts", "Durham Regional University"],
-        "fake_academic_libraries": ["Boswell Library","John and Jane Richworf Memorial Library", "Graduate Scientician Library", "Nineteenth Century Prussian Literature Library", "Anthropocene Geology Library"]
+        "fake_academic_libraries": ["Boswell Library","John and Jane Richworf Memorial Library", "Graduate Scientician Library", "Nineteenth Century Prussian Literature Library", "Anthropocene Geology Library"],
+        "things_libraries_could_be_like": ["a startup", "Google", "a bookstore", "Amazon", "another, better library"],
+        "types_of_studies": ["quantitative", "qualitative", "longitudinal"],
+        "targets_of_advocacy": ["stakeholders", "decision makers", "funders", "politicians", "universities", "communities"],
+        "technical_fads": ["QR codes", "3D printers", "Web 2.0", "Geobeacons"]
     }
 }
