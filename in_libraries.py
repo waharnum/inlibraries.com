@@ -9,7 +9,7 @@ import json
 APP = Flask(__name__)
 
 # TODO: remove before production
-APP.debug = False
+APP.debug = True
 
 # loads a JSON file to a dictionary variable
 def dict_from_json_file(json_file_path):
