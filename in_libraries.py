@@ -17,13 +17,13 @@ def dict_from_json_file(json_file_path):
     return json.loads(json_file)
 
 # Load synonyms
-synonyms = dict_from_json_file("synonyms.json")
+SYNONYMS = dict_from_json_file("synonyms.json")
 
 # Load session madlibs
-session_madlibs = dict_from_json_file("session_madlibs.json")
+SESSION_MADLIBS = dict_from_json_file("session_madlibs.json")
 
 # Load image information
-images_information = dict_from_json_file("images.json")
+IMAGES_INFORMATION = dict_from_json_file("images.json")
 
 # gets a random item from a collection and returns it
 def get_random_from_list(collection):
@@ -31,13 +31,13 @@ def get_random_from_list(collection):
     return collection[random_number]
 
 def get_random_image():
-    return get_random_from_list(images_information)
+    return get_random_from_list(IMAGES_INFORMATION)
 
 # part = part of speech (noun, verb, etc)
 # word = specific word to get a synonym for
 # refer to synonyms.json
 def get_synonym(part, word):
-    synonyms_for_word = synonyms[part][word]
+    synonyms_for_word = SYNONYMS[part][word]
     return get_random_from_list(synonyms_for_word)
 
 # Set up Jinja tag for synonym usage in templates
@@ -61,7 +61,7 @@ def front_page(subdomain=None):
         return render_template_string(template_string, subdomain=subdomain, subdomain_title=subdomain_title, year=year)
 
     def get_random_session_madlib():
-        template_string = get_random_from_list(session_madlibs)
+        template_string = get_random_from_list(SESSION_MADLIBS)
         return get_session_madlib_from_template_string(template_string)
 
     def get_random_session_madlibs(count=3):
@@ -77,7 +77,7 @@ def front_page(subdomain=None):
         return sessions
 
     def get_session_madlib_by_index(idx):
-        template_string = session_madlibs[idx]
+        template_string = SESSION_MADLIBS[idx]
         return get_session_madlib_from_template_string(template_string)
 
     # Set up Jinja tag for random session madlib in templates
@@ -85,7 +85,7 @@ def front_page(subdomain=None):
 
     APP.jinja_env.globals.update(session_by_index=get_session_madlib_by_index)
 
-    return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_session_madlibs=test_session_madlibs, session_madlibs=session_madlibs)
+    return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_session_madlibs=test_session_madlibs, session_madlibs=SESSION_MADLIBS)
 
 if __name__ == '__main__':
     APP.run()
