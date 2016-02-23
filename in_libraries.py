@@ -64,12 +64,10 @@ def front_page(subdomain=None):
         return get_session_madlib(template_string, subdomain, year)
 
     def get_random_session_madlib():
-        template_string = get_random_from_list(SESSION_MADLIBS)
-        return get_session_for_request(template_string)
+        return get_session_for_request(get_random_from_list(SESSION_MADLIBS))
 
     def get_session_madlib_by_index(idx):
-        template_string = SESSION_MADLIBS[idx]
-        return get_session_for_request(template_string)
+        return get_session_for_request(SESSION_MADLIBS[idx])
 
     def get_random_session_madlibs(count=3):
         sessions = []
