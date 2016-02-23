@@ -16,7 +16,6 @@
 
 
 .image-strip {
-	background-image: url("/static/assets/images/3.jpg");
 	height: 100px;
 	border:3px solid black;
 }
@@ -24,9 +23,11 @@
 
 .subtitle-container h2 {
     font-family: monospace;
-    font-size: 2em;    
+    font-size: 2em;
     color: white;
     text-align: center;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 .footer-links {
