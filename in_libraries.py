@@ -23,17 +23,20 @@ session_madlibs = json.loads(session_madlibs_json)
 image_json = open("images.json").read()
 images_information = json.loads(image_json)
 
+# gets a random item from a collection and returns it
+def get_random_from_list(collection):
+    random_number = randint(0, len(collection)-1)
+    return collection[random_number]
+
 def get_random_image():
-    random_number = randint(0, len(images_information)-1)
-    return images_information[random_number]
+    return get_random_from_list(images_information)
 
 # part = part of speech (noun, verb, etc)
 # word = specific word to get a synonym for
 # refer to synonyms.json
 def get_synonym(part, word):
     synonyms_for_word = synonyms[part][word]
-    random_number = randint(0, len(synonyms_for_word)-1)
-    return synonyms_for_word[random_number]
+    return get_random_from_list(synonyms_for_word)
 
 # Set up Jinja tag for synonym usage in templates
 app.jinja_env.globals.update(synonym=get_synonym)
@@ -53,8 +56,7 @@ def front_page(subdomain=None):
     test_session_madlibs = False
 
     def get_random_session_madlib():
-        random_number = randint(0, len(session_madlibs)-1)
-        return get_session_madlib(random_number)
+        return get_random_from_list(session_madlibs)
 
     def get_random_session_madlibs(count=3):
         sessions = []
