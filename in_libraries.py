@@ -50,7 +50,7 @@ def front_page(subdomain=None):
     year = date.today().year
 
     # Set to True to dump all the madlibs - good for testing
-    test_session_madlibs = True
+    test_session_madlibs = False
 
     def get_random_session_madlib():
         random_number = randint(0, len(session_madlibs)-1)
