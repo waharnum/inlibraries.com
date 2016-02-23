@@ -18,7 +18,7 @@
             </div>
         </div>
         {% set random_strip_image = random_image() %}
-        <div class="row image-strip" style="background-image: url('/static/assets/images/{{ random_strip_image["filename"] }}');"></div>
+        <div class="row image-strip" style="background-image: url('/static/assets/images/{{ random_strip_image["filename"] }}');"><a class="image-source-link" href='{{ random_strip_image["source"] }}'>Source</a></div>
         <div class="row subtitle-container">
             <div class="col-md-12">
                 <h2>How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }}?</h2>
