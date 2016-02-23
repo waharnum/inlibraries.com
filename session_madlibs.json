@@ -17,5 +17,15 @@
 
     "The Secret Ingredient is... {{ subdomain_title}}{{ ['?','!'] | random }} One {{ synonym('nouns','manager').title() }}'s Approach to Winning Over {{ synonym('concepts','types_of_staff').title() }}",
 
-    "{{ subdomain_title }} On A Shoestring Budget: Tips and Tricks for {{ synonym('concepts','types_of_libraries').title() }} Libraries" 
+    "{{ subdomain_title }} On A Shoestring Budget: Tips and Tricks for {{ synonym('concepts','types_of_libraries').title() }} Libraries",
+
+    "Make Your Library More Like {{ synonym('concepts','things_libraries_could_be_like').title() }} Using {{ subdomain_title }}",
+
+    "{{ synonym('concepts','technical_fads').title() }} and {{ subdomain_title }} for {{ synonym('concepts','types_of_libraries').title() }} Libraries",
+
+    "A {{ synonym('concepts','types_of_studies').title() }} Study of the Experiences of Undergraduate Students Researching {{ subdomain_title }} at the {{ synonym('concepts','fake_academic_libraries').title() }}",
+
+    "Increase Your Library's Community Relevance with {{ subdomain_title }}",
+
+    "{{ synonym('nouns','effective').title() }} Library Advocacy: {{ synonym('concepts','targets_of_advocacy').title() }} Listen When You Speak the Language of {{ subdomain_title }}!"
 ]
