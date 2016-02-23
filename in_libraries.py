@@ -57,8 +57,12 @@ def front_page(subdomain=None):
     # Set to True to dump all the madlibs - good for testing
     test_session_madlibs = False
 
+    def get_session_madlib_from_template_string(template_string):
+        return render_template_string(template_string, subdomain=subdomain, subdomain_title=subdomain_title, year=year)
+
     def get_random_session_madlib():
-        return get_random_from_list(session_madlibs)
+        template_string = get_random_from_list(session_madlibs)
+        return get_session_madlib_from_template_string(template_string)
 
     def get_random_session_madlibs(count=3):
         sessions = []
@@ -72,14 +76,14 @@ def front_page(subdomain=None):
 
         return sessions
 
-    def get_session_madlib(idx):
+    def get_session_madlib_by_index(idx):
         template_string = session_madlibs[idx]
-        return render_template_string(template_string, subdomain=subdomain, subdomain_title=subdomain_title, year=year)
+        return get_session_madlib_from_template_string(template_string)
 
     # Set up Jinja tag for random session madlib in templates
     app.jinja_env.globals.update(random_sessions=get_random_session_madlibs)
 
-    app.jinja_env.globals.update(session_by_index=get_session_madlib)
+    app.jinja_env.globals.update(session_by_index=get_session_madlib_by_index)
 
     return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_session_madlibs=test_session_madlibs, session_madlibs=session_madlibs)
 
