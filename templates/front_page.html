@@ -11,15 +11,11 @@
                             </li>
                             {% endfor %}
                         {% else %}
+                        {% for session in random_sessions() %}
                         <li>
-                            {{ random_session() }}
+                            {{ session }}
                         </li>
-                        <li>
-                            {{ random_session() }}
-                        </li>
-                        <li>
-                            {{ random_session() }}
-                        </li>
+                        {% endfor %}
                         {% endif %}
                     </ul>
             </div>

@@ -53,12 +53,24 @@ def front_page(subdomain=None):
         random_number = randint(0, len(session_madlibs)-1)
         return get_session_madlib(random_number)
 
+    def get_random_session_madlibs(count=3):
+        sessions = []
+
+        for i in range(0, count):
+            session = get_random_session_madlib()
+            # If this is an exact duplicate, keep regenerating until it's not
+            while session in sessions:
+                session = get_random_session_madlib()
+            sessions.append(session)
+
+        return sessions
+
     def get_session_madlib(idx):
         template_string = session_madlibs[idx]
         return render_template_string(template_string, subdomain=subdomain, subdomain_title=subdomain_title, year=year)
 
     # Set up Jinja tag for random session madlib in templates
-    app.jinja_env.globals.update(random_session=get_random_session_madlib)
+    app.jinja_env.globals.update(random_sessions=get_random_session_madlibs)
 
     app.jinja_env.globals.update(session_by_index=get_session_madlib)
 
