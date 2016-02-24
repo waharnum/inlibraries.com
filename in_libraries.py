@@ -51,19 +51,19 @@ def get_speaker_madlib(template_string):
     speaker_last_name = get_synonym("concepts", "last_names")
     return render_template_string(template_string, speaker_first_name=speaker_first_name, speaker_last_name=speaker_last_name)
 
-def get_random_speaker():
+def get_random_speaker_madlib():
     speaker_template = get_random_from_list(SPEAKER_MADLIBS)
     return get_speaker_madlib(speaker_template)
 
-def get_speaker_by_index(idx):
+def get_speaker_madlib_by_index(idx):
     speaker_template = SPEAKER_MADLIBS[idx]
     return get_speaker_madlib(speaker_template)
 
-def get_random_speakers(count=3):
+def get_random_speaker_madlibs(count=3):
     speakers = []
 
     for i in range(0, count):
-        speaker = get_random_speaker()
+        speaker = get_random_speaker_madlib()
         # If this is an exact duplicate, keep regenerating until it's not
         while speaker in speakers:
             speaker = get_random_speaker()
@@ -81,13 +81,13 @@ def get_random_white_text_gradient():
 APP.jinja_env.globals.update(synonym=get_synonym)
 
 # Set up Jinja tag for random speaker generation
-APP.jinja_env.globals.update(random_speaker=get_random_speaker)
+APP.jinja_env.globals.update(random_speaker=get_random_speaker_madlib)
 
 # Set up Jinja tag for speaker by index
-APP.jinja_env.globals.update(speaker_by_index=get_speaker_by_index)
+APP.jinja_env.globals.update(speaker_by_index=get_speaker_madlib_by_index)
 
 # Set up Jinja tag for random speaker group generation
-APP.jinja_env.globals.update(random_speakers=get_random_speakers)
+APP.jinja_env.globals.update(random_speakers=get_random_speaker_madlibs)
 
 # Set up Jinja tag for random image filename in template
 APP.jinja_env.globals.update(random_image=get_random_image)
