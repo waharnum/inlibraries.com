@@ -1,3 +1,17 @@
+.social-media-container {
+	text-align: right;
+	background-color:purple;
+	height: 2em;
+}
+
+.social-media-link, .social-media-link:hover, .social-media-link:visited {
+	color: white;
+}
+
+.twitter-share-icon {
+	height: 1.8em;
+}
+
 .title-container {
 	background-color:purple;
 }
