@@ -14,13 +14,14 @@
     <div class="container-fluid">
         <div class="row title-container" style="background: {{ random_white_text_gradient() }};">
             <div class="col-md-12">
-                <h1>{{ subdomain_title }} In Libraries {{ year }}</h1>
+                <h1 class="page-title">{{ subdomain_title }} In Libraries {{ year }}</h1>
             </div>
         </div>
         {% set random_strip_image = random_image() %}
-        <div class="row image-strip" style="background-image: url('/static/assets/images/{{ random_strip_image["filename"] }}');"><a class="image-source-link" href='{{ random_strip_image["source"] }}'>Source</a></div>
+        {% set random_strip_image_y_offset = range(0,401,25) | random %}
+        <div class="row image-strip" style="background-image: url('/static/assets/images/{{ random_strip_image["filename"] }}'); background-position: 0px -{{ random_strip_image_y_offset }}px;"><a class="image-source-link" href='{{ random_strip_image["source"] }}'>Source</a></div>
         <div class="row subtitle-container">
             <div class="col-md-12">
-                <h2>How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }}?</h2>
+                <h2 class="page-subtitle">How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }}?</h2>
             </div>
         </div>
