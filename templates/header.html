@@ -4,6 +4,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta property="og:url"           content="http://{{ subdomain}}.inlibraries.com" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="{{ subdomain_title }} In Libraries {{ year }}" />
+        <meta property="og:description"   content="Unlock the secrets of {{ subdomain }} in YOUR library in {{ year }}!" />
+
         <title>{{ subdomain_title }} In Libraries {{ year }}</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap-theme.min.css') }}">
