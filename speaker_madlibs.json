@@ -1,5 +1,5 @@
 [
-    "{{ synonym('concepts','first_names').title() }} {{ synonym('concepts','last_names').title() }}, Director of Service {{ synonym('nouns','innovation').title() }}, {{ synonym('concepts','fake_cities').title() }} Public Library",
+    "{{ speaker_first_name }} {{ speaker_last_name }}, {{ synonym('concepts','important_sounding_titles_general').title() }} of Service {{ synonym('nouns','innovation').title() }}, {{ synonym('concepts','fake_cities').title() }} Public Library",
     "{{ speaker_first_name }} {{ speaker_last_name }}, {{ synonym('nouns','thought leader').title() }} and Consultant, {{ speaker_last_name }} LLC",
-    "{{ synonym('concepts','first_names').title() }} {{ synonym('concepts','last_names').title() }}, Head of {{ synonym('concepts','types_of_library_departments').title() }}, {{ synonym('concepts','fake_academic_libraries').title() }}, {{ synonym('concepts','fake_higher_ed').title() }}"
+    "{{ speaker_first_name }} {{ speaker_last_name }}, {{ synonym('concepts','important_sounding_titles_academic').title() }} of {{ synonym('concepts','types_of_library_departments').title() }}, {{ synonym('concepts','fake_academic_libraries').title() }}, {{ synonym('concepts','fake_higher_ed').title() }}"
 ]

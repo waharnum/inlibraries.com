@@ -33,6 +33,8 @@
         "fake_academic_libraries": ["Boswell Library","John and Jane Richworf Memorial Library", "Graduate Scientician Library", "Nineteenth Century Prussian Literature Library", "Anthropocene Geology Library"],
         "first_names": ["Skip","Patricia","Alexander","John","Carol","Peter"],
         "last_names": ["Charlesworth","Hacksworth-Flemingdon","Snarlsworth","Wranglebotton","Murderrhoff","Gitsby"],
+        "important_sounding_titles_general": ["Vice-President", "Director", "Head"],
+        "important_sounding_titles_academic": ["Head","Dean","Associate University Librarian"],
         "things_libraries_could_be_like": ["a startup", "Google", "a bookstore", "Amazon", "another, better library"],
         "types_of_studies": ["quantitative", "qualitative", "longitudinal"],
         "targets_of_advocacy": ["stakeholders", "decision makers", "funders", "politicians", "universities", "communities"],
