@@ -1,15 +1,20 @@
 .social-media-container {
 	text-align: right;
 	background-color:purple;
-	height: 2em;
+	height: 3em;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
 }
 
 .social-media-link, .social-media-link:hover, .social-media-link:visited {
 	color: white;
+	height: 100%;
 }
 
-.twitter-share-icon {
-	height: 1.8em;
+.social-media-icon {
+	height: 2em;
+	display: inline-block;
+	padding-right: 0.75em;
 }
 
 .title-container {
