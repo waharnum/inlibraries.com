@@ -31,6 +31,6 @@
 
     "{{ subdomain_title }}: {{ synonym('concepts','critical').title() }}",
 
-    "{{ synonym('concepts','uber').title() }} for Books: Libraries, Bibliosharing and the Peer-to-Peer Economy"
+    "{{ synonym('concepts','uber').title() }} for Books: Libraries, {{ subdomain_title }} and the Peer-to-Peer Economy"
 
 ]
