@@ -2,7 +2,7 @@
 	background-color:purple;
 }
 
-.title-container h1 {
+.page-title {
     color: white;
     text-align: center;
     font-size:4em;
@@ -32,8 +32,7 @@
 	background-color: #FFF;
 }
 
-
-.subtitle-container h2 {
+.page-subtitle {
     font-family: monospace;
     font-size: 2em;
     color: white;
