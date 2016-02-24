@@ -27,5 +27,8 @@
 
     "Increase Your Library's Community Relevance with {{ subdomain_title }}",
 
-    "{{ synonym('nouns','effective').title() }} Library Advocacy: {{ synonym('concepts','targets_of_advocacy').title() }} Listen When You Speak the Language of {{ subdomain_title }}!"
+    "{{ synonym('nouns','effective').title() }} Library Advocacy: {{ synonym('concepts','targets_of_advocacy').title() }} Listen When You Speak the Language of {{ subdomain_title }}!",
+
+    "{{ subdomain_title }}: {{ synonym('concepts','critical').title() }}"
+
 ]
