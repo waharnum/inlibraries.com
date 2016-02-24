@@ -11,7 +11,11 @@
     </head>
 
 <body class="front_page">
+
     <div class="container-fluid">
+        <div class="row social-media-container">
+            {% include 'social_media.html' %}
+        </div>
         <div class="row title-container" style="background: {{ random_white_text_gradient() }};">
             <div class="col-md-12">
                 <h1 class="page-title">{{ subdomain_title }} In Libraries {{ year }}</h1>
