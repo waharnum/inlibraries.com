@@ -35,6 +35,7 @@
         "types_of_studies": ["quantitative", "qualitative", "longitudinal"],
         "targets_of_advocacy": ["stakeholders", "decision makers", "funders", "politicians", "universities", "communities"],
         "technical_fads": ["QR codes", "3D printers", "Web 2.0", "Geobeacons"],
-	"critical": ["critical issues", "engaging the dialectic", "interrogating the archive", "(re)imagining", "inscription and exception"]
+	"critical": ["critical issues", "engaging the dialectic", "interrogating the archive", "(re)imagining", "inscription and exception"],
+	"uber": ["Uber", "AirBnB", "Lyft"]
     }
 }

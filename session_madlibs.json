@@ -29,6 +29,8 @@
 
     "{{ synonym('nouns','effective').title() }} Library Advocacy: {{ synonym('concepts','targets_of_advocacy').title() }} Listen When You Speak the Language of {{ subdomain_title }}!",
 
-    "{{ subdomain_title }}: {{ synonym('concepts','critical').title() }}"
+    "{{ subdomain_title }}: {{ synonym('concepts','critical').title() }}",
+
+    "{{ synonym('concepts','uber').title() }} for Books: Libraries, Bibliosharing and the Peer-to-Peer Economy"
 
 ]
