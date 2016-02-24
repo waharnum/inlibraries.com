@@ -22,6 +22,9 @@ SYNONYMS = dict_from_json_file("synonyms.json")
 # Load session madlibs
 SESSION_MADLIBS = dict_from_json_file("session_madlibs.json")
 
+# Load speaker madlibs
+SPEAKER_MADLIBS = dict_from_json_file("speaker_madlibs.json")
+
 # Load image information
 IMAGES_INFORMATION = dict_from_json_file("images.json")
 
@@ -33,12 +36,6 @@ def get_random_from_list(collection):
     random_number = randint(0, len(collection)-1)
     return collection[random_number]
 
-def get_random_image():
-    return get_random_from_list(IMAGES_INFORMATION)
-
-def get_random_white_text_gradient():
-    return get_random_from_list(WHITE_TEXT_GRADIENTS)
-
 # part = part of speech (noun, verb, etc)
 # word = specific word to get a synonym for
 # refer to synonyms.json
@@ -49,8 +46,26 @@ def get_synonym(part, word):
 def get_session_madlib(template_string, subdomain, year):
     return render_template_string(template_string, subdomain=subdomain, subdomain_title=subdomain.title(), year=year)
 
+def get_speaker_madlib(template_string):
+    speaker_first_name = get_synonym("concepts","first_names")
+    speaker_last_name = get_synonym("concepts","last_names")
+    return render_template_string(template_string, speaker_first_name=speaker_first_name, speaker_last_name=speaker_last_name)
+
+def get_random_speaker():
+    speaker_template = get_random_from_list(SPEAKER_MADLIBS)
+    return get_speaker_madlib(speaker_template)
+
+def get_random_image():
+    return get_random_from_list(IMAGES_INFORMATION)
+
+def get_random_white_text_gradient():
+    return get_random_from_list(WHITE_TEXT_GRADIENTS)
+
 # Set up Jinja tag for synonym usage in templates
 APP.jinja_env.globals.update(synonym=get_synonym)
+
+# Set up Jinja tag for random speaker generation
+APP.jinja_env.globals.update(random_speaker=get_random_speaker)
 
 # Set up Jinja tag for random image filename in template
 APP.jinja_env.globals.update(random_image=get_random_image)
