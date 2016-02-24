@@ -1,6 +1,5 @@
 .title-container {
 	background-color:purple;
-	background: linear-gradient(to bottom, rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%);
 }
 
 .title-container h1 {
@@ -8,6 +7,12 @@
     text-align: center;
     font-size:4em;
     font-weight: bold;
+	text-shadow:
+		3px 3px 0 #000,
+  		-1px -1px 0 #000,
+   		1px -1px 0 #000,
+   		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .subtitle-container {
@@ -35,6 +40,12 @@
     text-align: center;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
+	text-shadow:
+		3px 3px 0 #000,
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .footer-links {
