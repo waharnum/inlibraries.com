@@ -55,6 +55,10 @@ def get_random_speaker():
     speaker_template = get_random_from_list(SPEAKER_MADLIBS)
     return get_speaker_madlib(speaker_template)
 
+def get_speaker_by_index(idx):
+    speaker_template = SPEAKER_MADLIBS[idx]
+    return get_speaker_madlib(speaker_template)
+
 def get_random_speakers(count=3):
     speakers = []
 
@@ -79,6 +83,9 @@ APP.jinja_env.globals.update(synonym=get_synonym)
 # Set up Jinja tag for random speaker generation
 APP.jinja_env.globals.update(random_speaker=get_random_speaker)
 
+# Set up Jinja tag for speaker by index
+APP.jinja_env.globals.update(speaker_by_index=get_speaker_by_index)
+
 # Set up Jinja tag for random speaker group generation
 APP.jinja_env.globals.update(random_speakers=get_random_speakers)
 
@@ -97,7 +104,7 @@ def front_page(subdomain=None):
     year = date.today().year
 
     # Set to True to dump all the madlibs - good for testing
-    test_session_madlibs = False
+    test_mode = False
 
     def get_random_session_madlib():
         session_template = get_random_from_list(SESSION_MADLIBS)
@@ -124,7 +131,7 @@ def front_page(subdomain=None):
 
     APP.jinja_env.globals.update(session_by_index=get_session_madlib_by_index)
 
-    return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_session_madlibs=test_session_madlibs, session_madlibs=SESSION_MADLIBS)
+    return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, session_madlibs=SESSION_MADLIBS, speaker_madlibs=SPEAKER_MADLIBS)
 
 if __name__ == '__main__':
     APP.run()

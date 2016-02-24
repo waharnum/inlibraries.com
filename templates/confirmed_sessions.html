@@ -1,6 +1,6 @@
 <h3>Confirmed Sessions</h3>
     <ul>
-        {% if test_session_madlibs %}
+        {% if test_mode %}
             {% for madlib in session_madlibs %}
             <li>
                 {{ session_by_index(loop.index0) }}
