@@ -25,6 +25,9 @@ SESSION_MADLIBS = dict_from_json_file("session_madlibs.json")
 # Load image information
 IMAGES_INFORMATION = dict_from_json_file("images.json")
 
+# Load gradients
+WHITE_TEXT_GRADIENTS = dict_from_json_file("white_text_gradients.json")
+
 # gets a random item from a collection and returns it
 def get_random_from_list(collection):
     random_number = randint(0, len(collection)-1)
@@ -32,6 +35,9 @@ def get_random_from_list(collection):
 
 def get_random_image():
     return get_random_from_list(IMAGES_INFORMATION)
+
+def get_random_white_text_gradient():
+    return get_random_from_list(WHITE_TEXT_GRADIENTS)
 
 # part = part of speech (noun, verb, etc)
 # word = specific word to get a synonym for
@@ -48,6 +54,9 @@ APP.jinja_env.globals.update(synonym=get_synonym)
 
 # Set up Jinja tag for random image filename in template
 APP.jinja_env.globals.update(random_image=get_random_image)
+
+# Set up Jinja tag for random white text gradient background in template
+APP.jinja_env.globals.update(random_white_text_gradient=get_random_white_text_gradient)
 
 # Front page route
 @APP.route('/')
