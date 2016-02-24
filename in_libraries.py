@@ -95,9 +95,13 @@ APP.jinja_env.globals.update(random_white_text_gradient=get_random_white_text_gr
 # Front page route
 @APP.route('/')
 def front_page(subdomain=None):
-    subdomain_split = request.host.split(".")[0].split("_")
-    subdomain = " ".join(subdomain_split)
-    subdomain_title = subdomain.title()
+    subdomain_raw = request.host.split(".")[0]
+    subdomain_split = subdomain_raw.split("_")
+    subdomain_underscores_converted = " ".join(subdomain_split)
+    subdomain_double_hyphens_converted = " ".join(subdomain_underscores_converted.split("--"))
+    print(subdomain_double_hyphens_converted)
+    subdomain = subdomain_double_hyphens_converted
+    subdomain_title = subdomain_double_hyphens_converted.title()
     year = date.today().year
 
     # Set to True to dump all the madlibs - good for testing
@@ -128,7 +132,7 @@ def front_page(subdomain=None):
 
     APP.jinja_env.globals.update(session_by_index=get_session_madlib_by_index)
 
-    return render_template('front_page.html', subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, session_madlibs=SESSION_MADLIBS, speaker_madlibs=SPEAKER_MADLIBS)
+    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, session_madlibs=SESSION_MADLIBS, speaker_madlibs=SPEAKER_MADLIBS)
 
 if __name__ == '__main__':
     APP.run(host='0.0.0.0')
