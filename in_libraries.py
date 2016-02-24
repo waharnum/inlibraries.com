@@ -47,13 +47,25 @@ def get_session_madlib(template_string, subdomain, year):
     return render_template_string(template_string, subdomain=subdomain, subdomain_title=subdomain.title(), year=year)
 
 def get_speaker_madlib(template_string):
-    speaker_first_name = get_synonym("concepts","first_names")
-    speaker_last_name = get_synonym("concepts","last_names")
+    speaker_first_name = get_synonym("concepts", "first_names")
+    speaker_last_name = get_synonym("concepts", "last_names")
     return render_template_string(template_string, speaker_first_name=speaker_first_name, speaker_last_name=speaker_last_name)
 
 def get_random_speaker():
     speaker_template = get_random_from_list(SPEAKER_MADLIBS)
     return get_speaker_madlib(speaker_template)
+
+def get_random_speakers(count=3):
+    speakers = []
+
+    for i in range(0, count):
+        speaker = get_random_speaker()
+        # If this is an exact duplicate, keep regenerating until it's not
+        while speaker in speakers:
+            speaker = get_random_speaker()
+        speakers.append(speaker)
+
+    return speakers
 
 def get_random_image():
     return get_random_from_list(IMAGES_INFORMATION)
@@ -66,6 +78,9 @@ APP.jinja_env.globals.update(synonym=get_synonym)
 
 # Set up Jinja tag for random speaker generation
 APP.jinja_env.globals.update(random_speaker=get_random_speaker)
+
+# Set up Jinja tag for random speaker group generation
+APP.jinja_env.globals.update(random_speakers=get_random_speakers)
 
 # Set up Jinja tag for random image filename in template
 APP.jinja_env.globals.update(random_image=get_random_image)

@@ -1,6 +1,8 @@
 <h3>Keynote Speakers</h3>
 <ul>
-    <li>{{ random_speaker() }}</li>
-    <li>{{ random_speaker() }}</li>
-    <li>{{ random_speaker() }}</li>
+    {% for speaker in random_speakers() %}
+    <li>
+        {{ speaker }}
+    </li>
+    {% endfor %}
 </ul>
