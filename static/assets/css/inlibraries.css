@@ -7,6 +7,12 @@
     text-align: center;
     font-size:4em;
     font-weight: bold;
+	text-shadow:
+		3px 3px 0 #000,
+  		-1px -1px 0 #000,
+   		1px -1px 0 #000,
+   		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .subtitle-container {
@@ -33,6 +39,12 @@
     text-align: center;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
+	text-shadow:
+		3px 3px 0 #000,
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .footer-links {
