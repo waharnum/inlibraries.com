@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import render_template_string
 from flask import request
+from flask import Response
 from datetime import date
 from random import randint
 import json
@@ -136,6 +137,11 @@ def front_page(subdomain=None):
     APP.jinja_env.globals.update(session_by_index=get_session_madlib_by_index)
 
     return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, session_madlibs=SESSION_MADLIBS, speaker_madlibs=SPEAKER_MADLIBS)
+
+@APP.route('/css/random.css')
+def random_css():
+    css = render_template('random.css')
+    return Response(css, mimetype='text/css')
 
 if __name__ == '__main__':
     APP.run()

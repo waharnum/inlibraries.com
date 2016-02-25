@@ -1,0 +1,8 @@
+.title-container {
+    background: {{ random_white_text_gradient() }};
+}
+
+{% set random_strip_image_y_offset = range(0,401,25) | random %}
+.image-strip {
+    background-position: 0px -{{ random_strip_image_y_offset }}px;
+}

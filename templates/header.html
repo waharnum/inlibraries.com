@@ -22,6 +22,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap-theme.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/inlibraries.css') }}">
+        <link rel="stylesheet" type="text/css" href="/css/random.css">
     </head>
 
 <body class="front_page">
@@ -30,14 +31,13 @@
         <div class="row social-media-container">
             {% include 'social_media.html' %}
         </div>
-        <div class="row title-container" style="background: {{ random_white_text_gradient() }};">
+        <div class="row title-container">
             <div class="col-md-12">
                 <h1 class="page-title">{{ subdomain_title }} In Libraries {{ year }}</h1>
             </div>
         </div>
         {% set random_strip_image = random_image() %}
-        {% set random_strip_image_y_offset = range(0,401,25) | random %}
-        <div class="row image-strip" style="background-image: url('/static/assets/images/{{ random_strip_image["filename"] }}'); background-position: 0px -{{ random_strip_image_y_offset }}px;"><a class="image-source-link" href='{{ random_strip_image["source"] }}'>Source</a></div>
+        <div class="row image-strip" style="background-image: url('/static/assets/images/{{ random_strip_image["filename"] }}');"><a class="image-source-link" href='{{ random_strip_image["source"] }}'>Source</a></div>
         <div class="row subtitle-container">
             <div class="col-md-12">
                 <h2 class="page-subtitle">How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }}?</h2>
