@@ -1,0 +1,19 @@
+
+{% set alignment_possibilities = ["left","right"] %}
+{% set dark_background_color = ["black", "purple"] | random %}
+{% set dark_gradient_background = random_white_text_gradient() %}
+
+.header-background {
+    background: {{ dark_gradient_background }};
+    background-color: {{ dark_background_color }};
+}
+
+.social-media-container {
+	text-align: {{ alignment_possibilities | random }};
+}
+
+/* offset the strip image a random amount */
+{% set random_strip_image_y_offset = range(0,401,25) | random %}
+.image-strip {
+    background-position: 0px -{{ random_strip_image_y_offset }}px;
+}
