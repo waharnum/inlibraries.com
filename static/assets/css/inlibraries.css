@@ -1,10 +1,13 @@
+.header-background {
+	margin-right: -15px;
+	margin-left: -15px;
+	border-bottom: 4px solid black;
+	border-top: 4px solid black;
+}
+
 .social-media-container {
-	text-align: right;
-	background-color:purple;
-	height: 3em;
-	padding-bottom: 0.5em;
-	padding-top: 0.5em;
-	border-bottom: 3px solid black;
+	height: 2em;
+	padding: 0.5em 1em 0.5em 1em;
 }
 
 .social-media-link, .social-media-link:hover, .social-media-link:visited {
@@ -16,10 +19,6 @@
 	height: 2em;
 	display: inline-block;
 	padding-right: 0.75em;
-}
-
-.title-container {
-	background-color:purple;
 }
 
 .page-title {
@@ -35,15 +34,10 @@
 		1px 1px 0 #000;
 }
 
-.subtitle-container {
-	background-color:purple;
-}
-
-
 .image-strip {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 	height: 100px;
-	border-top:3px solid black;
-	border-bottom:3px solid black;
 	text-align: right;
 }
 
@@ -71,6 +65,6 @@
 .footer-links {
 	margin-top: 2em;
 	padding-top: 2em;
-	border-top: 4px groove black;
+	border-top: 4px solid black;
 	text-align: center;
 }
