@@ -6,8 +6,13 @@
 }
 
 .social-media-container {
-	height: 2em;
-	padding: 0.5em 1em 0.5em 1em;
+	right: 0;
+	background-color: black;
+	position: absolute;
+	border-width: 0 0 1px 1px;
+	border-style: solid;
+	border-color: #FFF;
+	padding-bottom: 0.25em;
 }
 
 .social-media-link, .social-media-link:hover, .social-media-link:visited {
@@ -19,6 +24,11 @@
 	height: 2em;
 	display: inline-block;
 	padding-right: 0.75em;
+}
+
+.title-container {
+	padding-top: 1em;
+	border: 1px solid black;
 }
 
 .page-title {

@@ -8,10 +8,6 @@
     background-color: {{ dark_background_color }};
 }
 
-.social-media-container {
-	text-align: {{ alignment_possibilities | random }};
-}
-
 /* offset the strip image a random amount */
 {% set random_strip_image_y_offset = range(0,401,25) | random %}
 .image-strip {
