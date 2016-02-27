@@ -107,6 +107,10 @@ class ConferenceRequest:
         self.subdomain_as_string = subdomain_double_hyphens_converted
         self.year = date.today().year
 
+    def get_random_session_madlib(self):
+        session_template = get_random_from_list(SESSION_MADLIBS)
+        return get_session_madlib(session_template, self.subdomain_as_string, self.year)
+
 # Front page route
 @APP.route('/')
 def front_page(subdomain=None):
@@ -120,10 +124,6 @@ def front_page(subdomain=None):
     # Set to True to dump all the madlibs - good for testing
     test_mode = False
 
-    def get_random_session_madlib():
-        session_template = get_random_from_list(SESSION_MADLIBS)
-        return get_session_madlib(session_template, subdomain, year)
-
     def get_session_madlib_by_index(idx):
         session_template = SESSION_MADLIBS[idx]
         return get_session_madlib(session_template, subdomain, year)
@@ -132,10 +132,10 @@ def front_page(subdomain=None):
         sessions = []
 
         for i in range(0, count):
-            session = get_random_session_madlib()
+            session = conference_request.get_random_session_madlib()
             # If this is an exact duplicate, keep regenerating until it's not
             while session in sessions:
-                session = get_random_session_madlib()
+                session = conference_request.get_random_session_madlib()
             sessions.append(session)
 
         return sessions
