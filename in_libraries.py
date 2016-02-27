@@ -56,10 +56,6 @@ def get_random_speaker_madlib():
     speaker_template = get_random_from_list(SPEAKER_MADLIBS)
     return get_speaker_madlib(speaker_template)
 
-def get_speaker_madlib_by_index(idx):
-    speaker_template = SPEAKER_MADLIBS[idx]
-    return get_speaker_madlib(speaker_template)
-
 def get_random_speaker_madlibs(count=3):
     speakers = []
 
@@ -67,7 +63,16 @@ def get_random_speaker_madlibs(count=3):
         speaker = get_random_speaker_madlib()
         # If this is an exact duplicate, keep regenerating until it's not
         while speaker in speakers:
-            speaker = get_random_speaker()
+            speaker = get_random_speaker_madlib()
+        speakers.append(speaker)
+
+    return speakers
+
+def get_all_speaker_madlibs():
+    speakers = []
+
+    for speaker_template in SPEAKER_MADLIBS:
+        speaker = get_speaker_madlib(speaker_template)
         speakers.append(speaker)
 
     return speakers
@@ -84,8 +89,8 @@ APP.jinja_env.globals.update(synonym=get_synonym)
 # Set up Jinja tag for random speaker generation
 APP.jinja_env.globals.update(random_speaker=get_random_speaker_madlib)
 
-# Set up Jinja tag for speaker by index
-APP.jinja_env.globals.update(speaker_by_index=get_speaker_madlib_by_index)
+# Set up Jinja tag for all speakers
+APP.jinja_env.globals.update(all_speakers=get_all_speaker_madlibs)
 
 # Set up Jinja tag for random speaker group generation
 APP.jinja_env.globals.update(random_speakers=get_random_speaker_madlibs)
@@ -142,7 +147,7 @@ def front_page(subdomain=None):
     subdomain_title = conference_request.subdomain_as_string.title()
     year = conference_request.year
 
-    # Set to True to dump all the madlibs - good for testing
+    # Set to True to dump all the madlibs etc - good for testing
     test_mode = True
 
     # Set up Jinja tag for random session madlib in templates

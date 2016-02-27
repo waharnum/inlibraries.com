@@ -1,9 +1,9 @@
 <h3>Keynote Speakers</h3>
 <ul>
     {% if test_mode %}
-        {% for speaker in speaker_madlibs %}
+        {% for speaker in all_speakers() %}
         <li>
-            {{ speaker_by_index(loop.index0) }}
+            {{ speaker }}
         </li>
         {% endfor %}
     {% else %}
