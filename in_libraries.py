@@ -76,15 +76,8 @@ def get_all_speaker_madlibs():
         speakers.append(speaker)
     return speakers
 
-def get_random_white_text_gradient():
-    return get_random_from_list(WHITE_TEXT_GRADIENTS)
-
 # Set up Jinja tag for synonym usage in templates
 APP.jinja_env.globals.update(synonym=get_synonym)
-
-# Set up Jinja tag for random white text gradient background in template
-APP.jinja_env.globals.update(random_white_text_gradient=get_random_white_text_gradient)
-
 
 # Conference request object
 class ConferenceRequest:
@@ -147,7 +140,8 @@ def front_page(subdomain=None):
 
 @APP.route('/css/random.css')
 def random_css():
-    css = render_template('random.css')
+    dark_gradient_background = get_random_from_list(WHITE_TEXT_GRADIENTS)
+    css = render_template('random.css', dark_gradient_background=dark_gradient_background)
     return Response(css, mimetype='text/css')
 
 if __name__ == '__main__':
