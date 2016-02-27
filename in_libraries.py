@@ -74,7 +74,6 @@ def get_all_speaker_madlibs():
     for speaker_template in SPEAKER_MADLIBS:
         speaker = get_speaker_madlib(speaker_template)
         speakers.append(speaker)
-
     return speakers
 
 def get_random_image():
@@ -148,14 +147,14 @@ def front_page(subdomain=None):
     year = conference_request.year
 
     # Set to True to dump all the madlibs etc - good for testing
-    test_mode = True
+    test_mode = False
 
-    # Set up Jinja tag for random session madlib in templates
-    APP.jinja_env.globals.update(random_sessions=conference_request.get_random_session_madlibs)
+    if(test_mode):
+        sessions = conference_request.get_all_session_madlibs()
+    else:
+        sessions = conference_request.get_random_session_madlibs()
 
-    APP.jinja_env.globals.update(all_sessions=conference_request.get_all_session_madlibs)
-
-    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode)
+    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, sessions=sessions)
 
 @APP.route('/css/random.css')
 def random_css():
