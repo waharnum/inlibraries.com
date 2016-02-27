@@ -155,7 +155,7 @@ def front_page(subdomain=None):
 
     APP.jinja_env.globals.update(all_sessions=conference_request.get_all_session_madlibs)
 
-    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, speaker_madlibs=SPEAKER_MADLIBS)
+    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode)
 
 @APP.route('/css/random.css')
 def random_css():
