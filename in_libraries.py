@@ -123,9 +123,14 @@ class ConferenceRequest:
 
         return sessions
 
-    def get_session_madlib_by_index(self, idx):
-        session_template = SESSION_MADLIBS[idx]
-        return get_session_madlib(session_template, self.subdomain_as_string, self.year)
+    def get_all_session_madlibs(self):
+        sessions = []
+
+        for session_template in SESSION_MADLIBS:
+            session = get_session_madlib(session_template, self.subdomain_as_string, self.year)
+            sessions.append(session)
+
+        return sessions
 
 # Front page route
 @APP.route('/')
@@ -138,14 +143,14 @@ def front_page(subdomain=None):
     year = conference_request.year
 
     # Set to True to dump all the madlibs - good for testing
-    test_mode = False
+    test_mode = True
 
     # Set up Jinja tag for random session madlib in templates
     APP.jinja_env.globals.update(random_sessions=conference_request.get_random_session_madlibs)
 
-    APP.jinja_env.globals.update(session_by_index=conference_request.get_session_madlib_by_index)
+    APP.jinja_env.globals.update(all_sessions=conference_request.get_all_session_madlibs)
 
-    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, session_madlibs=SESSION_MADLIBS, speaker_madlibs=SPEAKER_MADLIBS)
+    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, speaker_madlibs=SPEAKER_MADLIBS)
 
 @APP.route('/css/random.css')
 def random_css():
