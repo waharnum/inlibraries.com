@@ -1,16 +1,8 @@
 <h3>Confirmed Sessions</h3>
     <ul>
-        {% if test_mode %}
-            {% for madlib in session_madlibs %}
+            {% for session in sessions %}
             <li>
-                {{ session_by_index(loop.index0) }}
+                {{ session }}
             </li>
-            {% endfor %}
-        {% else %}
-        {% for session in random_sessions() %}
-        <li>
-            {{ session }}
-        </li>
-        {% endfor %}
-        {% endif %}
+            {% endfor %}        
     </ul>

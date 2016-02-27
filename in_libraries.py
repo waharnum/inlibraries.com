@@ -53,10 +53,6 @@ def get_random_speaker_madlib():
     speaker_template = get_random_from_list(SPEAKER_MADLIBS)
     return get_speaker_madlib(speaker_template)
 
-def get_speaker_madlib_by_index(idx):
-    speaker_template = SPEAKER_MADLIBS[idx]
-    return get_speaker_madlib(speaker_template)
-
 def get_random_speaker_madlibs(count=3):
     speakers = []
 
@@ -64,9 +60,17 @@ def get_random_speaker_madlibs(count=3):
         speaker = get_random_speaker_madlib()
         # If this is an exact duplicate, keep regenerating until it's not
         while speaker in speakers:
-            speaker = get_random_speaker()
+            speaker = get_random_speaker_madlib()
         speakers.append(speaker)
 
+    return speakers
+
+def get_all_speaker_madlibs():
+    speakers = []
+
+    for speaker_template in SPEAKER_MADLIBS:
+        speaker = get_speaker_madlib(speaker_template)
+        speakers.append(speaker)
     return speakers
 
 def get_random_image():
@@ -81,59 +85,69 @@ APP.jinja_env.globals.update(synonym=get_synonym)
 # Set up Jinja tag for random speaker generation
 APP.jinja_env.globals.update(random_speaker=get_random_speaker_madlib)
 
-# Set up Jinja tag for speaker by index
-APP.jinja_env.globals.update(speaker_by_index=get_speaker_madlib_by_index)
-
-# Set up Jinja tag for random speaker group generation
-APP.jinja_env.globals.update(random_speakers=get_random_speaker_madlibs)
-
 # Set up Jinja tag for random image filename in template
 APP.jinja_env.globals.update(random_image=get_random_image)
 
 # Set up Jinja tag for random white text gradient background in template
 APP.jinja_env.globals.update(random_white_text_gradient=get_random_white_text_gradient)
 
-# Front page route
-@APP.route('/')
-def front_page(subdomain=None):
-    subdomain_raw = request.host.split(".")[0]
-    subdomain_split = subdomain_raw.split("_")
-    subdomain_underscores_converted = " ".join(subdomain_split)
-    subdomain_double_hyphens_converted = " ".join(subdomain_underscores_converted.split("--"))
-    print(subdomain_double_hyphens_converted)
-    subdomain = subdomain_double_hyphens_converted
-    subdomain_title = subdomain_double_hyphens_converted.title()
-    year = date.today().year
 
-    # Set to True to dump all the madlibs - good for testing
-    test_mode = False
+# Conference request object
+class ConferenceRequest:
+    def __init__(self, request):
+        self.subdomain = request.host.split(".")[0]
+        subdomain_split = self.subdomain.split("_")
+        subdomain_underscores_converted = " ".join(subdomain_split)
+        subdomain_double_hyphens_converted = " ".join(subdomain_underscores_converted.split("--"))
+        self.subdomain_as_string = subdomain_double_hyphens_converted
+        self.year = date.today().year
 
-    def get_random_session_madlib():
+    def get_random_session_madlib(self):
         session_template = get_random_from_list(SESSION_MADLIBS)
-        return get_session_madlib(session_template, subdomain, year)
+        return get_session_madlib(session_template, self.subdomain_as_string, self.year)
 
-    def get_session_madlib_by_index(idx):
-        session_template = SESSION_MADLIBS[idx]
-        return get_session_madlib(session_template, subdomain, year)
-
-    def get_random_session_madlibs(count=3):
+    def get_random_session_madlibs(self, count=3):
         sessions = []
 
         for i in range(0, count):
-            session = get_random_session_madlib()
+            session = self.get_random_session_madlib()
             # If this is an exact duplicate, keep regenerating until it's not
             while session in sessions:
-                session = get_random_session_madlib()
+                session = self.get_random_session_madlib()
             sessions.append(session)
 
         return sessions
 
-    # Set up Jinja tag for random session madlib in templates
-    APP.jinja_env.globals.update(random_sessions=get_random_session_madlibs)
+    def get_all_session_madlibs(self):
+        sessions = []
 
-    APP.jinja_env.globals.update(session_by_index=get_session_madlib_by_index)
+        for session_template in SESSION_MADLIBS:
+            session = get_session_madlib(session_template, self.subdomain_as_string, self.year)
+            sessions.append(session)
 
-    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, session_madlibs=SESSION_MADLIBS, speaker_madlibs=SPEAKER_MADLIBS)
+        return sessions
+
+# Front page route
+@APP.route('/')
+def front_page(subdomain=None):
+    conference_request = ConferenceRequest(request)
+
+    subdomain = conference_request.subdomain_as_string
+    subdomain_raw = conference_request.subdomain
+    subdomain_title = conference_request.subdomain_as_string.title()
+    year = conference_request.year
+
+    # Set to True to dump all the madlibs etc - good for testing
+    test_mode = False
+
+    if(test_mode):
+        speakers = get_all_speaker_madlibs()
+        sessions = conference_request.get_all_session_madlibs()
+    else:
+        speakers = get_random_speaker_madlibs()
+        sessions = conference_request.get_random_session_madlibs()
+
+    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, sessions=sessions, speakers=speakers)
 
 @APP.route('/css/random.css')
 def random_css():
