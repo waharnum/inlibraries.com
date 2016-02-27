@@ -36,12 +36,11 @@
                 <div class="col-md-12">
                     <h1 class="page-title">{{ subdomain_title }} In Libraries {{ year }}</h1>
                 </div>
-            </div>
-            {% set random_strip_image = random_image() %}
+            </div>            
             <div class="row image-strip" style="background-image: url('/static/assets/images/{{ random_strip_image["filename"] }}');"><a class="image-source-link" href='{{ random_strip_image["source"] }}'>Source</a></div>
             <div class="row subtitle-container">
                 <div class="col-md-12">
                     <h2 class="page-subtitle">How Will Your Library {{ synonym("verbs","use").title() }} {{ subdomain_title }} In the {{ synonym("nouns","future").title() }}?</h2>
                 </div>
             </div>
-        </div>    
+        </div>
