@@ -96,17 +96,26 @@ APP.jinja_env.globals.update(random_image=get_random_image)
 # Set up Jinja tag for random white text gradient background in template
 APP.jinja_env.globals.update(random_white_text_gradient=get_random_white_text_gradient)
 
+
+# Conference request object
+class ConferenceRequest:
+    def __init__(self, request):
+        self.subdomain = request.host.split(".")[0]
+        subdomain_split = self.subdomain.split("_")
+        subdomain_underscores_converted = " ".join(subdomain_split)
+        subdomain_double_hyphens_converted = " ".join(subdomain_underscores_converted.split("--"))
+        self.subdomain_as_string = subdomain_double_hyphens_converted
+        self.year = date.today().year
+
 # Front page route
 @APP.route('/')
 def front_page(subdomain=None):
-    subdomain_raw = request.host.split(".")[0]
-    subdomain_split = subdomain_raw.split("_")
-    subdomain_underscores_converted = " ".join(subdomain_split)
-    subdomain_double_hyphens_converted = " ".join(subdomain_underscores_converted.split("--"))
-    print(subdomain_double_hyphens_converted)
-    subdomain = subdomain_double_hyphens_converted
-    subdomain_title = subdomain_double_hyphens_converted.title()
-    year = date.today().year
+    conference_request = ConferenceRequest(request)
+
+    subdomain = conference_request.subdomain_as_string
+    subdomain_raw = conference_request.subdomain
+    subdomain_title = conference_request.subdomain.title()
+    year = conference_request.year
 
     # Set to True to dump all the madlibs - good for testing
     test_mode = False
