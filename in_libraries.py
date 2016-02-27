@@ -9,9 +9,6 @@ import json
 
 APP = Flask(__name__)
 
-# TODO: remove before production
-APP.debug = True
-
 # loads a JSON file to a dictionary variable
 def dict_from_json_file(json_file_path):
     json_file = open(json_file_path).read()
@@ -144,4 +141,4 @@ def random_css():
     return Response(css, mimetype='text/css')
 
 if __name__ == '__main__':
-    APP.run()
+    APP.run(host='0.0.0.0')
