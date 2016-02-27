@@ -76,20 +76,11 @@ def get_all_speaker_madlibs():
         speakers.append(speaker)
     return speakers
 
-def get_random_image():
-    return get_random_from_list(IMAGES_INFORMATION)
-
 def get_random_white_text_gradient():
     return get_random_from_list(WHITE_TEXT_GRADIENTS)
 
 # Set up Jinja tag for synonym usage in templates
 APP.jinja_env.globals.update(synonym=get_synonym)
-
-# Set up Jinja tag for random speaker generation
-APP.jinja_env.globals.update(random_speaker=get_random_speaker_madlib)
-
-# Set up Jinja tag for random image filename in template
-APP.jinja_env.globals.update(random_image=get_random_image)
 
 # Set up Jinja tag for random white text gradient background in template
 APP.jinja_env.globals.update(random_white_text_gradient=get_random_white_text_gradient)
@@ -143,6 +134,8 @@ def front_page(subdomain=None):
     # Set to True to dump all the madlibs etc - good for testing
     test_mode = False
 
+    random_strip_image = get_random_from_list(IMAGES_INFORMATION)
+
     if(test_mode):
         speakers = get_all_speaker_madlibs()
         sessions = conference_request.get_all_session_madlibs()
@@ -150,7 +143,7 @@ def front_page(subdomain=None):
         speakers = get_random_speaker_madlibs()
         sessions = conference_request.get_random_session_madlibs()
 
-    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, sessions=sessions, speakers=speakers)
+    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, sessions=sessions, speakers=speakers, random_strip_image=random_strip_image)
 
 @APP.route('/css/random.css')
 def random_css():
