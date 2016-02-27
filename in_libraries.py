@@ -111,6 +111,18 @@ class ConferenceRequest:
         session_template = get_random_from_list(SESSION_MADLIBS)
         return get_session_madlib(session_template, self.subdomain_as_string, self.year)
 
+    def get_random_session_madlibs(self, count=3):
+        sessions = []
+
+        for i in range(0, count):
+            session = self.get_random_session_madlib()
+            # If this is an exact duplicate, keep regenerating until it's not
+            while session in sessions:
+                session = self.get_random_session_madlib()
+            sessions.append(session)
+
+        return sessions
+
 # Front page route
 @APP.route('/')
 def front_page(subdomain=None):
@@ -128,20 +140,8 @@ def front_page(subdomain=None):
         session_template = SESSION_MADLIBS[idx]
         return get_session_madlib(session_template, subdomain, year)
 
-    def get_random_session_madlibs(count=3):
-        sessions = []
-
-        for i in range(0, count):
-            session = conference_request.get_random_session_madlib()
-            # If this is an exact duplicate, keep regenerating until it's not
-            while session in sessions:
-                session = conference_request.get_random_session_madlib()
-            sessions.append(session)
-
-        return sessions
-
     # Set up Jinja tag for random session madlib in templates
-    APP.jinja_env.globals.update(random_sessions=get_random_session_madlibs)
+    APP.jinja_env.globals.update(random_sessions=conference_request.get_random_session_madlibs)
 
     APP.jinja_env.globals.update(session_by_index=get_session_madlib_by_index)
 
