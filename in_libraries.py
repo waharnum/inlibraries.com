@@ -88,12 +88,6 @@ APP.jinja_env.globals.update(synonym=get_synonym)
 # Set up Jinja tag for random speaker generation
 APP.jinja_env.globals.update(random_speaker=get_random_speaker_madlib)
 
-# Set up Jinja tag for all speakers
-APP.jinja_env.globals.update(all_speakers=get_all_speaker_madlibs)
-
-# Set up Jinja tag for random speaker group generation
-APP.jinja_env.globals.update(random_speakers=get_random_speaker_madlibs)
-
 # Set up Jinja tag for random image filename in template
 APP.jinja_env.globals.update(random_image=get_random_image)
 
@@ -150,11 +144,13 @@ def front_page(subdomain=None):
     test_mode = False
 
     if(test_mode):
+        speakers = get_all_speaker_madlibs()
         sessions = conference_request.get_all_session_madlibs()
     else:
+        speakers = get_random_speaker_madlibs()
         sessions = conference_request.get_random_session_madlibs()
 
-    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, sessions=sessions)
+    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, sessions=sessions, speakers=speakers)
 
 @APP.route('/css/random.css')
 def random_css():

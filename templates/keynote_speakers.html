@@ -1,16 +1,8 @@
 <h3>Keynote Speakers</h3>
 <ul>
-    {% if test_mode %}
-        {% for speaker in all_speakers() %}
-        <li>
-            {{ speaker }}
-        </li>
-        {% endfor %}
-    {% else %}
-        {% for speaker in random_speakers() %}
-        <li>
-            {{ speaker }}
-        </li>
-        {% endfor %}
-    {% endif %}
+    {% for speaker in speakers %}
+    <li>
+        {{ speaker }}
+    </li>
+    {% endfor %}
 </ul>
