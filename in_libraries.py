@@ -122,7 +122,7 @@ def front_page(subdomain=None):
     year = conference_request.year
 
     # Set to True to dump all the madlibs etc - good for testing
-    test_mode = False
+    test_mode = True
 
     random_strip_image = get_random_from_list(IMAGES_INFORMATION)
 
