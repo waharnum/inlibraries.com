@@ -31,6 +31,8 @@
 
     "{{ subdomain_title }}: {{ synonym('concepts','critical').title() }}",
 
-    "{{ synonym('concepts','uber').title() }} for Books: Libraries, {{ subdomain_title }} and the Peer-to-Peer Economy"
+    "{{ synonym('concepts','uber').title() }} for Books: Libraries, {{ subdomain_title }} and the Peer-to-Peer Economy",
+
+    "Is {{ subdomain_title }} the Future of Libraries? Three Library {{ synonym('nouns','managers').title() }} Give Their Take"
 
 ]
