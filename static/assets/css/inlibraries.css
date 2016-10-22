@@ -36,6 +36,7 @@
     text-align: center;
     font-size:4em;
     font-weight: bold;
+	text-transform: uppercase;
 	text-shadow:
 		3px 3px 0 #000,
   		-1px -1px 0 #000,
@@ -59,7 +60,6 @@
 }
 
 .page-subtitle {
-    font-family: monospace;
     font-size: 2em;
     color: white;
     text-align: center;
@@ -71,6 +71,10 @@
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
+}
+
+.time-venue {
+	font-size: 1.3em;
 }
 
 .footer-links {

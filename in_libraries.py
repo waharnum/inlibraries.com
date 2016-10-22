@@ -4,6 +4,7 @@ from flask import render_template_string
 from flask import request
 from flask import Response
 from datetime import date
+from datetime import timedelta
 from random import randint
 import json
 
@@ -73,6 +74,18 @@ def get_all_speaker_madlibs():
         speakers.append(speaker)
     return speakers
 
+def get_conference_date():
+    current_date = date.today()
+    delta = timedelta(days=90)
+    future_date = current_date + delta
+    return future_date
+
+def get_conference_display_date(conference_date):
+    delta = timedelta(days=1)
+    next_day = conference_date + delta
+    time_format = "%A, %B %d"
+    return conference_date.strftime(time_format) + " - " + next_day.strftime(time_format)
+
 # Set up Jinja tag for synonym usage in templates
 APP.jinja_env.globals.update(synonym=get_synonym)
 
@@ -84,7 +97,12 @@ class ConferenceRequest:
         subdomain_underscores_converted = " ".join(subdomain_split)
         subdomain_double_hyphens_converted = " ".join(subdomain_underscores_converted.split("--"))
         self.subdomain_as_string = subdomain_double_hyphens_converted
-        self.year = date.today().year
+
+        conference_date = get_conference_date()
+        self.year = get_conference_date().year
+        self.display_date = get_conference_display_date(conference_date)
+
+        self.conference_location = get_synonym("concepts", "fake_cities")
 
     def get_random_session_madlib(self):
         session_template = get_random_from_list(SESSION_MADLIBS)
@@ -120,6 +138,8 @@ def front_page(subdomain=None):
     subdomain_raw = conference_request.subdomain
     subdomain_title = conference_request.subdomain_as_string.title()
     year = conference_request.year
+    display_date = conference_request.display_date
+    conference_location = conference_request.conference_location
 
     # Set to True to dump all the madlibs etc - good for testing
     test_mode = False
@@ -133,7 +153,7 @@ def front_page(subdomain=None):
         speakers = get_random_speaker_madlibs()
         sessions = conference_request.get_random_session_madlibs()
 
-    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, test_mode=test_mode, sessions=sessions, speakers=speakers, random_strip_image=random_strip_image)
+    return render_template('front_page.html', subdomain_raw=subdomain_raw, subdomain=subdomain, subdomain_title=subdomain_title, year=year, display_date=display_date, conference_location=conference_location, test_mode=test_mode, sessions=sessions, speakers=speakers, random_strip_image=random_strip_image)
 
 @APP.route('/css/random.css')
 def random_css():
